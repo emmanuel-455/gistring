@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom"
 import Navbar from "./components/Navbar"
 import HomePage from "./pages/HomePage"
-import SignupPage from "./pages/SignupPage"
+//import SignUpPage from "./pages/SignUpPage"
 import LoginPage from "./pages/LoginPage"
 import ProfilePage from "./pages/ProfilePage"
 import SettingsPage from "./pages/SettingsPage"
@@ -10,6 +10,7 @@ import { useEffect } from "react"
 import {Loader} from "lucide-react"
 import { Toaster } from "react-hot-toast"
 import { useThemeStore } from "./store/useThemeStore"
+import SignUpPage from "./pages/SignupPage"
 
 
 const App = () => {
@@ -31,7 +32,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={authUser ? <HomePage /> : <Navigate to="/login" />} />
-        <Route path="/signup" element={!authUser ? <SignupPage /> : <Navigate to="/" />} />
+        <Route path="/signup" element={!authUser ? <SignUpPage /> : <Navigate to="/" />} />
         <Route path="/login" element={!authUser? <LoginPage /> : <Navigate to="/" />} />
         <Route path="/profile" element={authUser ? <ProfilePage /> : <Navigate to="/login" />} />
         <Route path="settings" element={<SettingsPage />} />
